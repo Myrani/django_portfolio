@@ -1,2 +1,4 @@
 django_website_venv/*
 django_website/django_project/conf/*
+django_website/.env
+django_website/db.sqlite3
