@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Three.js with Django</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+        }
+        canvas {
+            display: block;
+        }
+        #info {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            color: white;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div id="info">Three.js running locally with Django</div>
+    
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "{% static 'three/build/three.module.js' %}"
+        }
+    }
+    </script>
+    
+    <script type="module">
+        import { initScene } from "{% static 'js/three-scene.js' %}";
+        initScene();
+    </script>
+</body>
+</html>
